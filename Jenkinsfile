@@ -4,7 +4,12 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'bash -c "python3 -m venv venv && source venv/bin/activate && pip install pandas scikit-learn joblib"'
+                    sh """
+                    set -e
+                    set -x
+                    bash -c 'python3 -m venv venv && source venv\Scripts\activate'
+                    bash -c  'pip install pandas scikit-learn joblib'
+                    """
                 }
             }
         }
