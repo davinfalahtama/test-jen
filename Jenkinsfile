@@ -7,7 +7,7 @@ pipeline {
                     sh """
                     set -e
                     set -x
-                    bash -c 'python3 -m venv venv && source venv\Scripts\activate'
+                    bash -c 'python3 -m venv venv && source venv/bin/activate'
                     bash -c  'pip install pandas scikit-learn joblib'
                     """
                 }
