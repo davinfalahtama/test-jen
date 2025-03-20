@@ -4,14 +4,15 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'pip install pandas scikit-learn joblib'
+                    sh 'python3 -m venv venv'
+                    sh 'source venv/bin/activate && pip install pandas scikit-learn joblib'
                 }
             }
         }
         stage('Train Model') {
             steps {
                 script {
-                    sh 'python model.py'
+                    sh 'source venv/bin/activate && python model.py'
                 }
             }
         }
