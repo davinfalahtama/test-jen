@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     stages {
         stage('Install Dependencies') {
             steps {
@@ -7,16 +8,21 @@ pipeline {
                     sh """
                     set -e
                     set -x
-                    bash -c 'python3 -m venv venv && source venv/bin/activate'
-                    bash -c  'pip install pandas scikit-learn joblib'
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install pandas scikit-learn joblib
                     """
                 }
             }
         }
+        
         stage('Train Model') {
             steps {
                 script {
-                    sh 'bash -c "source venv/bin/activate && python model.py"'
+                    sh """
+                    . venv/bin/activate
+                    python model.py
+                    """
                 }
             }
         }
