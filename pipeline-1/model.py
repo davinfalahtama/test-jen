@@ -2,10 +2,13 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-# import joblib
+import joblib
+import os
+
+csv_path = os.path.join(os.path.dirname(__file__), "data.csv")
 
 # Load dataset
-data = pd.read_csv('pipeline-1\data.csv')
+data = pd.read_csv(csv_path)
 
 # Preprocessing
 data['jenis_kelamin'] = data['jenis_kelamin'].map({'Pria': 0, 'Wanita': 1})

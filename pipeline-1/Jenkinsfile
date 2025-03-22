@@ -9,7 +9,7 @@ pipeline {
                     cd pipeline-1
                     python3 -m venv venv
                     . venv/bin/activate
-                    pip install pandas scikit-learn joblib
+                    pip install pandas scikit-learn
                     """
                 }
             }
