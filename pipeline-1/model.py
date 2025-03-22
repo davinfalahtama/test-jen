@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score
 import joblib
 
 # Load dataset
-data = pd.read_csv('data.csv')
+data = pd.read_csv('pipeline-1\data.csv')
 
 # Preprocessing
 data['jenis_kelamin'] = data['jenis_kelamin'].map({'Pria': 0, 'Wanita': 1})
