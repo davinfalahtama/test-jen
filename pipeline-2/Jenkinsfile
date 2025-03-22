@@ -2,11 +2,14 @@ pipeline {
     agent any
 
     stages {
-
+ 
         stage('Run Node.js') {
             steps {
                 script {
-                    sh 'node app.js'
+                    sh """
+                    cd pipeline-2
+                    node app.js
+                    """
                 }
             }
         }
@@ -14,7 +17,10 @@ pipeline {
         stage('Run Go') {
             steps {
                 script {
-                    sh 'go run main.go'
+                    sh """
+                    cd pipeline-2
+                    go run main.go
+                    """
                 }
             }
         }
@@ -22,7 +28,10 @@ pipeline {
         stage('Run Java') {
             steps {
                 script {
-                    sh 'javac HelloJenkins.java && java HelloJenkins'
+                    sh """
+                    cd pipeline-2
+                    javac HelloJenkins.java && java HelloJenkins
+                    """
                 }
             }
         }
