@@ -12,7 +12,7 @@ pipeline {
                     pip install pandas scikit-learn
                     """
                 }
-            }
+            } 
         }
 
         stage('Train Model') {
